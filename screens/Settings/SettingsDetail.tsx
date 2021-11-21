@@ -1,15 +1,14 @@
 import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { StyleSheet, View, Text, Button } from "react-native";
 import { SettingsStackParamsList } from "../../types/SettingsStack";
+import { StyleSheet, View, Text } from "react-native";
 
-type SettingsRootProps = NativeStackScreenProps<SettingsStackParamsList, "Root">;
+type SettingsDetailProps = NativeStackScreenProps<SettingsStackParamsList, "Detail">;
 
-export const SettingsRoot = ({ navigation }: SettingsRootProps) => {
+export const SettingsDetail = (props: SettingsDetailProps) => {
   return (
     <View style={styles.container}>
-      <Text>Settings Root</Text>
-      <Button title="See settings details" onPress={() => navigation.navigate("Detail")} />
+      <Text>Settings Detail</Text>
     </View>
   );
 };

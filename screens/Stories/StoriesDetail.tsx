@@ -1,8 +1,12 @@
 import React from "react";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { StoriesStackParamsList } from "../../types/storiesStack";
 import { StyleSheet, View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-export const StoriesDetail = () => {
+type StoriesDetailProps = NativeStackScreenProps<StoriesStackParamsList, "Detail">;
+
+export const StoriesDetail = (props: StoriesDetailProps) => {
   return (
     <View style={styles.container}>
       <Text>Stories Detail</Text>
