@@ -7,4 +7,10 @@ export type StoriesListData = {
   comment_count: number;
   comments_url: string;
   tags: string[];
+  submitter_user: StoryAuthor;
+};
+
+export type StoryAuthor = {
+  username: string;
+  avatar_url: string;
 };

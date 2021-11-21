@@ -15,15 +15,15 @@ export const TagChip = ({ tag }: TagChipProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#46020326",
+    backgroundColor: "#A1161526",
     paddingVertical: 2,
     paddingHorizontal: 4,
     borderRadius: 4,
     borderWidth: 1,
-    borderColor: "#460203",
+    borderColor: "#A11615",
   },
   text: {
-    color: "#460203",
+    color: "#A11615",
     fontWeight: "600",
     fontSize: 12,
   },

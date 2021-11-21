@@ -11,7 +11,7 @@ export const StoriesRootListItem = ({ story }: StoriesRootListItemProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{story.title || "Title not available"}</Text>
-      <Text style={styles.author}>via $author</Text>
+      <Text style={styles.author}>{`via ${story.submitter_user.username}`}</Text>
       <View style={styles.tagsContainer}>
         {story.tags.map((tag) => (
           <View style={styles.tagWrapper}>
