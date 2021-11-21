@@ -1,6 +1,6 @@
 import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { StoriesStackParamsList } from "../../types/storiesStack";
+import { StoriesStackParamsList } from "../../types/Stories/StoriesStack";
 import { StyleSheet, View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 

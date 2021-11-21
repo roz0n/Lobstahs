@@ -1,7 +1,7 @@
 import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StyleSheet, View, Text, Button } from "react-native";
-import { SettingsStackParamsList } from "../../types/SettingsStack";
+import { SettingsStackParamsList } from "../../types/Settings/SettingsStack";
 
 type SettingsRootProps = NativeStackScreenProps<SettingsStackParamsList, "Root">;
 
