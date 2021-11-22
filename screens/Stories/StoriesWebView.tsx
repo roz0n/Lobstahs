@@ -3,6 +3,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StoriesStackParamsList } from "../../types/Stories/StoriesStack";
 import { StyleSheet } from "react-native";
 import { WebView, WebViewMessageEvent } from "react-native-webview";
+import { LoadingIndicator } from "../../components/shared/LoadingIndicator";
 
 type StoriesWebViewProps = NativeStackScreenProps<StoriesStackParamsList, "WebView">;
 
@@ -23,6 +24,7 @@ export const StoriesWebView = ({ route, navigation }: StoriesWebViewProps) => {
       style={styles.container}
       source={{ uri: url }}
       startInLoadingState={true}
+      renderLoading={() => <LoadingIndicator size={"small"} color={"#A11615"} />}
       injectedJavaScript="window.ReactNativeWebView.postMessage(document.title)"
       onMessage={getTitle}
     />
