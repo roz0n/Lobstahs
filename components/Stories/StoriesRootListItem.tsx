@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { StoriesListData } from "../../types/Stories/StoriesListData";
 import { TagChip } from "../Shared/TagChip";
 
@@ -9,17 +9,17 @@ type StoriesRootListItemProps = {
 
 export const StoriesRootListItem = ({ story }: StoriesRootListItemProps) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Text style={styles.title}>{story.title || "Title not available"}</Text>
       <Text style={styles.author}>{`via ${story.submitter_user.username}`}</Text>
       <View style={styles.tagsContainer}>
         {story.tags.map((tag) => (
-          <View style={styles.tagWrapper}>
+          <View style={styles.tagWrapper} key={tag}>
             <TagChip tag={tag} />
           </View>
         ))}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
