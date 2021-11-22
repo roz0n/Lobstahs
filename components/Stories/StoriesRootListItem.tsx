@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { StoriesListData } from "../../types/Stories/StoriesListData";
 import { TagChip } from "../shared/TagChip";
+import { LobsterWhite, LobsterLightGray } from "../../constants/colors";
 
 type StoriesRootListItemProps = {
   story: StoriesListData;
@@ -29,8 +30,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
     marginVertical: 0,
     borderBottomWidth: 0.25,
-    borderBottomColor: "gray",
-    backgroundColor: "white",
+    borderBottomColor: LobsterLightGray,
+    backgroundColor: LobsterWhite,
   },
   title: {
     fontSize: 16,

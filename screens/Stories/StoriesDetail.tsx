@@ -3,6 +3,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StoriesStackParamsList } from "../../types/Stories/StoriesStack";
 import { StyleSheet, View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import { LobsterWhite } from "../../constants/colors";
 
 type StoriesDetailProps = NativeStackScreenProps<StoriesStackParamsList, "Detail">;
 
@@ -18,7 +19,7 @@ export const StoriesDetail = (props: StoriesDetailProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: LobsterWhite,
     alignItems: "center",
     justifyContent: "center",
   },

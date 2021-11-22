@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
+import { LobsterBaseRed, LobsterBaseRed_15pct } from "../../constants/colors";
 
 type TagChipProps = {
   tag: string;
@@ -15,13 +16,13 @@ export const TagChip = ({ tag }: TagChipProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#A1161526",
+    backgroundColor: LobsterBaseRed_15pct,
     paddingVertical: 3,
     paddingHorizontal: 6,
     borderRadius: 4,
   },
   text: {
-    color: "#A11615",
+    color: LobsterBaseRed,
     fontWeight: "600",
     fontSize: 12,
   },

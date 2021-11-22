@@ -4,6 +4,7 @@ import { StoriesStackParamsList } from "../../types/Stories/StoriesStack";
 import { StyleSheet } from "react-native";
 import { WebView, WebViewMessageEvent } from "react-native-webview";
 import { LoadingIndicator } from "../../components/shared/LoadingIndicator";
+import { LobsterWhite } from "../../constants/colors";
 
 type StoriesWebViewProps = NativeStackScreenProps<StoriesStackParamsList, "WebView">;
 
@@ -34,7 +35,7 @@ export const StoriesWebView = ({ route, navigation }: StoriesWebViewProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: LobsterWhite,
     alignItems: "center",
     justifyContent: "center",
   },

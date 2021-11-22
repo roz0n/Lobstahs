@@ -2,6 +2,7 @@ export enum LobstersStoryList {
   hottest = "hottest",
   newest = "newest",
 }
+
 export class LobstersDataService {
   getRequestOptions = {
     method: "get",

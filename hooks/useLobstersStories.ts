@@ -3,7 +3,7 @@ import { StoriesListData } from "../types/Stories/StoriesListData";
 import { LobstersDataService } from "../services/LobstersDataService";
 import { LobstersStoryList } from "../services/LobstersDataService";
 
-export function useLobsters(list: LobstersStoryList) {
+export function useLobstersStories(list: LobstersStoryList) {
   const dataService = new LobstersDataService();
   const [stories, setStories] = useState<StoriesListData[]>();
   const [error, setError] = useState<boolean>(false);
@@ -25,6 +25,7 @@ export function useLobsters(list: LobstersStoryList) {
             getMethod = dataService.getNewestStories;
             break;
           default:
+            setError(true);
             return;
         }
 

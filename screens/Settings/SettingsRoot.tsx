@@ -2,6 +2,7 @@ import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StyleSheet, View, Text, Button } from "react-native";
 import { SettingsStackParamsList } from "../../types/Settings/SettingsStack";
+import { LobsterWhite } from "../../constants/colors";
 
 type SettingsRootProps = NativeStackScreenProps<SettingsStackParamsList, "Root">;
 
@@ -17,7 +18,7 @@ export const SettingsRoot = ({ navigation }: SettingsRootProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: LobsterWhite,
     alignItems: "center",
     justifyContent: "center",
   },

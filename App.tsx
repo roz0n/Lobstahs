@@ -4,6 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { NavigationContainer } from "@react-navigation/native";
 import { StoriesStackScreens } from "./navigation/Stacks/StoriesStack";
 import { SettingsStackScreens } from "./navigation/Stacks/SettingsStack";
+import { LobsterBaseRed, LobsterDarkGray } from "./constants/colors";
 
 export default function App() {
   return (
@@ -11,7 +12,8 @@ export default function App() {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           headerShown: false,
-          tabBarActiveTintColor: "#A11615",
+          tabBarActiveTintColor: LobsterBaseRed,
+          tabBarInactiveTintColor: LobsterDarkGray,
           tabBarIcon: ({ focused, color, size }) => {
             // Ionicons has garbage type-defs, let's ignore them
             let iconName: any;
