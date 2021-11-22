@@ -3,9 +3,8 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ListRenderItemInfo } from "react-native";
 import { StoriesStackParamsList } from "../../types/Stories/StoriesStack";
 import { StoriesListData } from "../../types/Stories/StoriesListData";
-import { StyleSheet, View, Text, FlatList, SafeAreaView } from "react-native";
+import { StyleSheet, View, Text, FlatList, SafeAreaView, TouchableOpacity } from "react-native";
 import { StoriesRootListItem } from "../../components/Stories/StoriesRootListItem";
-import HOTTEST_MOCK_DATA from "../../mocks/HOTTEST_MOCK_DATA.json";
 import { LobstersDataService } from "../../services/LobstersDataService";
 
 type StoriesRootProps = NativeStackScreenProps<StoriesStackParamsList, "Root">;
@@ -18,9 +17,9 @@ export const StoriesRoot = ({ navigation }: StoriesRootProps) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const renderItem = ({ item }: ListRenderItemInfo<StoriesListData>) => (
-    <View>
+    <TouchableOpacity onPress={() => navigation.navigate("WebView", { url: item.url })}>
       <StoriesRootListItem story={item} />
-    </View>
+    </TouchableOpacity>
   );
 
   // TODO: This should be a hook
