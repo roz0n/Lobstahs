@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ListRenderItemInfo } from "react-native";
 import { StoriesStackParamsList } from "../../types/Stories/StoriesStack";
 import { StoriesListData } from "../../types/Stories/StoriesListData";
 import { StyleSheet, View, Text, FlatList, SafeAreaView, TouchableOpacity } from "react-native";
 import { StoriesRootListItem } from "../../components/Stories/StoriesRootListItem";
-import { LobstersDataService } from "../../services/LobstersDataService";
+import { useLobsters } from "../../hooks/useLobstersStories";
+import { LobstersStoryList } from "../../services/LobstersDataService";
 
 type StoriesRootProps = NativeStackScreenProps<StoriesStackParamsList, "Root">;
 
 export const StoriesRoot = ({ navigation }: StoriesRootProps) => {
-  const { getHottestStories } = new LobstersDataService();
-
-  const [hottestStories, setHottestStories] = useState<StoriesListData[]>();
-  const [error, setError] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
+  const { stories, error, loading } = useLobsters(LobstersStoryList.newest);
 
   const renderItem = ({ item }: ListRenderItemInfo<StoriesListData>) => (
     <TouchableOpacity onPress={() => navigation.navigate("WebView", { url: item.url })}>
@@ -22,43 +19,9 @@ export const StoriesRoot = ({ navigation }: StoriesRootProps) => {
     </TouchableOpacity>
   );
 
-  // TODO: This should be a hook
-  useEffect(() => {
-    async function loadStories() {
-      try {
-        setError(false);
-        setLoading(true);
-
-        const response = await getHottestStories();
-
-        if (response.status !== 200 && response.status !== 429) {
-          throw new Error();
-        } else {
-          const data = await response.json();
-
-          if (data.length > 0) {
-            setHottestStories(data);
-          } else {
-            throw new Error();
-          }
-        }
-      } catch (error) {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    if (!hottestStories) {
-      loadStories();
-    }
-  }, [hottestStories]);
-
   return (
     <SafeAreaView style={styles.container}>
-      {hottestStories && !error && (
-        <FlatList data={hottestStories} renderItem={renderItem} keyExtractor={(item) => item.short_id} />
-      )}
+      {stories && !error && <FlatList data={stories} renderItem={renderItem} keyExtractor={(item) => item.short_id} />}
       {error && (
         <View>
           <Text>Error loading stories</Text>

@@ -16,11 +16,9 @@ export const TagChip = ({ tag }: TagChipProps) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#A1161526",
-    paddingVertical: 2,
-    paddingHorizontal: 4,
+    paddingVertical: 3,
+    paddingHorizontal: 6,
     borderRadius: 4,
-    borderWidth: 1,
-    borderColor: "#A11615",
   },
   text: {
     color: "#A11615",

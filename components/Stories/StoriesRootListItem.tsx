@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { StoriesListData } from "../../types/Stories/StoriesListData";
-import { TagChip } from "../Shared/TagChip";
+import { TagChip } from "../shared/TagChip";
 
 type StoriesRootListItemProps = {
   story: StoriesListData;
