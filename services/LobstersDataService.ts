@@ -1,4 +1,4 @@
-export enum LobstersStoryList {
+export enum LobstersStoriesList {
   hottest = "hottest",
   newest = "newest",
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { StoriesListData } from "../types/Stories/StoriesListData";
 import { LobstersDataService } from "../services/LobstersDataService";
-import { LobstersStoryList } from "../services/LobstersDataService";
+import { LobstersStoriesList } from "../services/LobstersDataService";
 
-export function useLobstersStories(list: LobstersStoryList) {
+export function useLobstersStories(list: LobstersStoriesList) {
   const dataService = new LobstersDataService();
   const [stories, setStories] = useState<StoriesListData[]>();
   const [error, setError] = useState<boolean>(false);
@@ -18,10 +18,10 @@ export function useLobstersStories(list: LobstersStoryList) {
         let getMethod;
 
         switch (list) {
-          case LobstersStoryList.hottest:
+          case LobstersStoriesList.hottest:
             getMethod = dataService.getHottestStories;
             break;
-          case LobstersStoryList.newest:
+          case LobstersStoriesList.newest:
             getMethod = dataService.getNewestStories;
             break;
           default:

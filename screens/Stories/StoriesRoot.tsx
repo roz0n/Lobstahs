@@ -7,13 +7,13 @@ import { LoadingIndicator } from "../../components/shared/LoadingIndicator";
 import { StyleSheet, View, Text, FlatList, SafeAreaView, TouchableOpacity } from "react-native";
 import { StoriesRootListItem } from "../../components/Stories/StoriesRootListItem";
 import { useLobstersStories } from "../../hooks/useLobstersStories";
-import { LobstersStoryList } from "../../services/LobstersDataService";
+import { LobstersStoriesList } from "../../services/LobstersDataService";
 import { LobsterBaseRed } from "../../constants/colors";
 
 type StoriesRootProps = NativeStackScreenProps<StoriesStackParamsList, "Root">;
 
 export const StoriesRoot = ({ navigation }: StoriesRootProps) => {
-  const { stories, error, loading } = useLobstersStories(LobstersStoryList.newest);
+  const { stories, error, loading } = useLobstersStories(LobstersStoriesList.newest);
 
   const renderItem = ({ item }: ListRenderItemInfo<StoriesListData>) => (
     <TouchableOpacity onPress={() => navigation.navigate("WebView", { url: item.url })}>
