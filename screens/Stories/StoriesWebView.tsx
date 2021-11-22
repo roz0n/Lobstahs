@@ -15,7 +15,6 @@ export const StoriesWebView = ({ route, navigation }: StoriesWebViewProps) => {
     const title = message.nativeEvent.title;
 
     if (title && title !== "") {
-      console.log("Setting title", title);
       navigation.setOptions({ headerTitle: title, title });
     }
   }
