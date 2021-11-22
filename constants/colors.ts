@@ -28,5 +28,6 @@ export const LobsterBaseRed_15pct = "#A1161526";
 export const LobsterDarkRed = "#460203";
 export const LobsterDarkRed_15pct = "#46020326";
 export const LobsterWhite = "#FEFEFE";
+export const LobsterBlack = "#0F0F0F";
 export const LobsterLightGray = "#B3B3B3";
 export const LobsterDarkGray = "#828282";

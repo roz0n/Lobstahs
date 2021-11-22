@@ -8,6 +8,7 @@ import { StyleSheet, View, Text, FlatList, SafeAreaView, TouchableOpacity } from
 import { StoriesRootListItem } from "../../components/Stories/StoriesRootListItem";
 import { useLobstersStories } from "../../hooks/useLobstersStories";
 import { LobstersStoryList } from "../../services/LobstersDataService";
+import { LobsterBaseRed } from "../../constants/colors";
 
 type StoriesRootProps = NativeStackScreenProps<StoriesStackParamsList, "Root">;
 
@@ -30,7 +31,7 @@ export const StoriesRoot = ({ navigation }: StoriesRootProps) => {
           <Text>Error loading stories</Text>
         </View>
       )}
-      {loading && <LoadingIndicator size={"small"} color={"#A11615"} />}
+      {loading && <LoadingIndicator size={"small"} color={LobsterBaseRed} />}
     </SafeAreaView>
   );
 };
