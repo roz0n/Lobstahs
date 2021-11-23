@@ -2,16 +2,26 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { StoriesListData } from "../../types/Stories/StoriesListData";
 import { TagChip } from "../shared/TagChip";
-import { LobsterWhite, LobsterLightGray, LobsterBlack } from "../../constants/colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { extractDomain } from "../../utils/extractDomain";
+import { LobsterWhite, LobsterLightGray, LobsterBlack, LobsterBaseRed } from "../../constants/colors";
 
 type StoriesRootListItemProps = {
+  index: number;
   story: StoriesListData;
 };
 
-export const StoriesRootListItem = ({ story }: StoriesRootListItemProps) => {
+export const StoriesRootListItem = ({ index, story }: StoriesRootListItemProps) => {
+  // A source url might be a "self" post on lobste.rs itself in which case story.url will be empty
+  const sourceUrlDomain = story.url === "" ? "lobste.rs" : extractDomain(story.url);
+  const storyIndexLabel = `${index + 1}. `;
+
   return (
     <View style={styles.container}>
+      <View style={styles.sourceContainer}>
+        <Text style={styles.storyIndex}>{storyIndexLabel}</Text>
+        <Text style={styles.sourceText}>{sourceUrlDomain}</Text>
+      </View>
       <Text style={styles.title}>{story.title || "Title not available"}</Text>
       <Text style={styles.author}>{`via ${story.submitter_user.username}`}</Text>
       <View style={styles.tagsContainer}>
@@ -45,6 +55,20 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.25,
     borderBottomColor: LobsterLightGray,
     backgroundColor: LobsterWhite,
+  },
+  sourceContainer: {
+    marginBottom: 6,
+    flexDirection: "row",
+  },
+  storyIndex: {
+    color: LobsterBaseRed,
+    fontSize: 12,
+    fontWeight: "600",
+  },
+  sourceText: {
+    color: LobsterBaseRed,
+    fontSize: 12,
+    fontWeight: "600",
   },
   title: {
     fontSize: 16,

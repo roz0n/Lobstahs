@@ -15,9 +15,9 @@ type StoriesRootProps = NativeStackScreenProps<StoriesStackParamsList, "Root">;
 export const StoriesRoot = ({ navigation }: StoriesRootProps) => {
   const { stories, error, loading } = useLobstersStories(LobstersStoriesList.hottest);
 
-  const renderItem = ({ item }: ListRenderItemInfo<StoriesListData>) => (
+  const renderItem = ({ item, index }: ListRenderItemInfo<StoriesListData>) => (
     <TouchableOpacity onPress={() => navigation.navigate("WebView", { url: item.url })}>
-      <StoriesRootListItem story={item} />
+      <StoriesRootListItem story={item} index={index} />
     </TouchableOpacity>
   );
 
