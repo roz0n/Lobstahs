@@ -13,7 +13,7 @@ import { LobsterBaseRed } from "../../constants/colors";
 type StoriesRootProps = NativeStackScreenProps<StoriesStackParamsList, "Root">;
 
 export const StoriesRoot = ({ navigation }: StoriesRootProps) => {
-  const { stories, error, loading } = useLobstersStories(LobstersStoriesList.newest);
+  const { stories, error, loading } = useLobstersStories(LobstersStoriesList.hottest);
 
   const renderItem = ({ item }: ListRenderItemInfo<StoriesListData>) => (
     <TouchableOpacity onPress={() => navigation.navigate("WebView", { url: item.url })}>

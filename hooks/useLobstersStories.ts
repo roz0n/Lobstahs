@@ -15,21 +15,21 @@ export function useLobstersStories(list: LobstersStoriesList) {
         setError(false);
         setLoading(true);
 
-        let getMethod;
+        let getData;
 
         switch (list) {
           case LobstersStoriesList.hottest:
-            getMethod = dataService.getHottestStories;
+            getData = dataService.getHottestStories;
             break;
           case LobstersStoriesList.newest:
-            getMethod = dataService.getNewestStories;
+            getData = dataService.getNewestStories;
             break;
           default:
             setError(true);
             return;
         }
 
-        const response = await getMethod();
+        const response = await getData();
 
         if (response.status !== 200 && response.status !== 429) {
           throw new Error();
