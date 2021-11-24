@@ -13,7 +13,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.roz0n.Lobstahs"
@@ -22,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#A11615"
-      }
+      },
+      "package": "com.notenoughscience.Lobstahs"
     },
     "web": {
       "favicon": "./assets/favicon.png"
